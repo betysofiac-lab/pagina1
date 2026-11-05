@@ -1,714 +1,248 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mente Sana - Comprender para Sanar</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0fdfa',
-                            100: '#ccfbf1',
-                            200: '#99f6e4',
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                            700: '#0f766e',
-                            800: '#115e59',
-                            900: '#134e4a',
-                        },
-                        lavender: {
-                            50: '#fcf8ff',
-                            100: '#f3e8ff',
-                            200: '#e9d5ff',
-                            500: '#a855f7',
-                            700: '#6b21a8',
-                        },
-                        softslate: '#2d3748'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-        .breathe-circle {
-            animation: breatheAnimation 8s infinite ease-in-out;
-        }
-        @keyframes breatheAnimation {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.4); opacity: 1; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MenteSana | Salud Mental y Bienestar</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .breathe-animation {
+      transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 via-teal-50/30 to-purple-50/40 text-slate-700 antialiased min-h-screen">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Navbar -->
-    <nav class="sticky top-0 z-50 glass-card border-b border-teal-100/50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="scrollToTop()">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-teal-500 to-purple-500 flex items-center justify-center text-white shadow-md">
-                        <i class="fa-solid fa-brain text-lg"></i>
-                    </div>
-                    <span class="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-teal-700 to-purple-700">MenteSana</span>
-                </div>
-                <div class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
-                    <a href="#historia" class="hover:text-teal-600 transition-colors">Evolución Histórica</a>
-                    <a href="#trastornos" class="hover:text-teal-600 transition-colors">Trastornos Comunes</a>
-                    <a href="#mitos" class="hover:text-teal-600 transition-colors">Mitos y Realidades</a>
-                    <a href="#autocuidado" class="hover:text-teal-600 transition-colors">Autocuidado</a>
-                </div>
-                <a href="#ayuda" class="bg-teal-600 hover:bg-teal-700 text-white font-medium px-4 py-2 rounded-full text-sm shadow-md hover:shadow-lg transition-all duration-300">
-                    <i class="fa-solid fa-heart-pulse mr-1.5"></i> Obtener Ayuda
-                </a>
-            </div>
+  <!-- BARRA DE NAVEGACIÓN -->
+  <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 rounded-xl bg-teal-600 flex items-center justify-center text-white shadow-md shadow-teal-600/20">
+            <i data-lucide="brain"></i>
+          </div>
+          <span class="font-bold text-xl tracking-tight text-slate-900">MenteSana</span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative overflow-hidden py-20 lg:py-28">
-        <div class="absolute -top-40 -left-40 w-96 h-96 bg-purple-200/40 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute top-20 -right-40 w-96 h-96 bg-teal-200/40 rounded-full blur-3xl pointer-events-none"></div>
         
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <span class="inline-block bg-teal-100 text-teal-800 text-xs font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-6 border border-teal-200">
-                Salud Mental & Empatía Humana
-            </span>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
-                De la "locura" al entendimiento: <br class="hidden sm:inline">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-indigo-600 to-purple-600">Sanar la mente es un derecho universal</span>
-            </h1>
-            <p class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
-                A lo largo de los siglos, lo incomprendido fue tachado de "locura". Hoy sabemos que cuidar la salud mental es tan vital y natural como cuidar el cuerpo. Rompamos estigmas juntos.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#historia" class="bg-slate-900 hover:bg-slate-800 text-white font-medium px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all">
-                    Explorar la Historia <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                </a>
-                <a href="#mitos" class="bg-white hover:bg-slate-50 text-slate-700 font-medium px-7 py-3.5 rounded-full border border-slate-200 shadow-sm hover:shadow transition-all">
-                    Desmontar Mitos
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Banner Estadístico -->
-    <section class="py-10 bg-white/60 backdrop-blur-md border-y border-teal-100">
-        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div class="p-4">
-                <p class="text-4xl font-extrabold text-teal-600 mb-1">1 de cada 4</p>
-                <p class="text-sm text-slate-600 font-medium">Personas experimentará un problema de salud mental en su vida.</p>
-            </div>
-            <div class="p-4 border-y md:border-y-0 md:border-x border-slate-200/60">
-                <p class="text-4xl font-extrabold text-purple-600 mb-1">+300M</p>
-                <p class="text-sm text-slate-600 font-medium">De personas conviven con depresión en el mundo hoy en día.</p>
-            </div>
-            <div class="p-4">
-                <p class="text-4xl font-extrabold text-indigo-600 mb-1">0%</p>
-                <p class="text-sm text-slate-600 font-medium">De motivo para sentir vergüenza. La empatía salva vidas.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección 1: Evolución Histórica de la "Locura" -->
-    <section id="historia" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">La Evolución del Concepto de "Locura"</h2>
-            <p class="mt-4 text-slate-600 max-w-2xl mx-auto">Un viaje histórico desde la estigmatización y la superstición hasta la ciencia moderna y el trato humanizado.</p>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+          <a href="#historia" class="hover:text-teal-600 transition-colors">Historia</a>
+          <a href="#trastornos" class="hover:text-teal-600 transition-colors">Trastornos</a>
+          <a href="#mitos" class="hover:text-teal-600 transition-colors">Mitos y Realidades</a>
+          <a href="#respiracion" class="hover:text-teal-600 transition-colors">Ejercicio 4-7-8</a>
+          <a href="#ayuda" class="hover:text-teal-600 transition-colors">Ayuda</a>
         </div>
 
-        <div class="relative border-l-2 border-teal-200 ml-4 md:ml-32 space-y-12">
-            
-            <!-- Era 1 -->
-            <div class="relative pl-8 md:pl-12 group">
-                <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-teal-500 border-4 border-white flex items-center justify-center text-white text-xs shadow-md group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-moon"></i>
-                </div>
-                <div class="md:absolute md:-left-36 md:top-1.5 text-xs font-semibold uppercase tracking-wider text-teal-700 bg-teal-100/70 px-2.5 py-1 rounded inline-block mb-2 md:mb-0">
-                    Antigüedad
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Posesiones Demoníacas y Castigo Divino</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-3">
-                        En civilizaciones antiguas (Mesopotamia, Egipto, Grecia arcaica), el comportamiento fuera de lo normal no se consideraba una enfermedad, sino una manifestación sobrenatural, un castigo de los dioses o la posesión por espíritus malignos.
-                    </p>
-                    <span class="inline-flex items-center text-xs font-medium text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
-                        <i class="fa-solid fa-triangle-exclamation mr-1.5"></i> Tratamientos: Trepanaciones, exorcismos y rituales.
-                    </span>
-                </div>
-            </div>
+        <!-- Botones de Autenticación / Perfil -->
+        <div class="flex items-center gap-3">
+          <div id="loggedOutState" class="flex items-center gap-2">
+            <button onclick="openAuthModal('login')" class="text-sm font-semibold text-slate-700 hover:text-teal-600 px-3 py-2 transition-colors">
+              Iniciar Sesión
+            </button>
+            <button onclick="openAuthModal('register')" class="text-sm font-semibold bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-xl shadow-md shadow-teal-600/20 transition-all">
+              Registrarse
+            </button>
+          </div>
 
-            <!-- Era 2 -->
-            <div class="relative pl-8 md:pl-12 group">
-                <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-indigo-500 border-4 border-white flex items-center justify-center text-white text-xs shadow-md group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-flask"></i>
-                </div>
-                <div class="md:absolute md:-left-36 md:top-1.5 text-xs font-semibold uppercase tracking-wider text-indigo-700 bg-indigo-100/70 px-2.5 py-1 rounded inline-block mb-2 md:mb-0">
-                    Grecia y Roma
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">La Teoría de los Humores (Hipócrates y Galeno)</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-3">
-                        Hipócrates revolucionó el pensamiento al proponer que el cerebro era el asiento de las emociones y pensamientos. Explicó la "manía" o la "melancolía" como desequilibrios de los humores corporales (bilis negra, bilis amarilla, sangre y flema).
-                    </p>
-                    <span class="inline-flex items-center text-xs font-medium text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-                        <i class="fa-solid fa-lightbulb mr-1.5"></i> Avance: Primer enfoque médico y naturalista de la mente.
-                    </span>
-                </div>
+          <div id="loggedInState" class="hidden items-center gap-3">
+            <div class="flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">
+              <div class="w-7 h-7 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold text-xs" id="userAvatar">
+                U
+              </div>
+              <span id="userEmail" class="text-xs font-medium text-slate-700 max-w-[140px] truncate">usuario@mail.com</span>
             </div>
-
-            <!-- Era 3 -->
-            <div class="relative pl-8 md:pl-12 group">
-                <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-purple-500 border-4 border-white flex items-center justify-center text-white text-xs shadow-md group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-[#]"></i>
-                    <i class="fa-solid fa-dungeon"></i>
-                </div>
-                <div class="md:absolute md:-left-36 md:top-1.5 text-xs font-semibold uppercase tracking-wider text-purple-700 bg-purple-100/70 px-2.5 py-1 rounded inline-block mb-2 md:mb-0">
-                    Edad Media y Asilos
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">El Retorno del Estigma y el Aislamiento</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-3">
-                        Durante gran parte de la Edad Media y el Renacimiento, se retornó a las explicaciones místicas y a la persecución de la brujería. Más tarde, entre los siglos XVI y XVIII, nacieron los primeros asilos (como el hospital Bedlam en Londres), donde los pacientes eran encadenados y recluidos lejos de la sociedad.
-                    </p>
-                    <span class="inline-flex items-center text-xs font-medium text-rose-700 bg-rose-50 px-3 py-1 rounded-full border border-rose-200">
-                        <i class="fa-solid fa-lock mr-1.5"></i> Era del Encierro: Sin intención de curar, solo de ocultar.
-                    </span>
-                </div>
-            </div>
-
-            <!-- Era 4 -->
-            <div class="relative pl-8 md:pl-12 group">
-                <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-teal-600 border-4 border-white flex items-center justify-center text-white text-xs shadow-md group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-hands-holding-child"></i>
-                </div>
-                <div class="md:absolute md:-left-36 md:top-1.5 text-xs font-semibold uppercase tracking-wider text-teal-700 bg-teal-100/70 px-2.5 py-1 rounded inline-block mb-2 md:mb-0">
-                    Siglos XIX - XX
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Tratamiento Moral y Nacimiento de la Psiquiatría</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-3">
-                        Pioneros como Philippe Pinel retiran las cadenas a los enfermos mentales impulsando el "tratamiento moral". En el siglo XX surgen el psicoanálisis de Freud, la clasificación de enfermedades mentales (DSM) y la psicofarmacología (antidepresivos, ansiolíticos).
-                    </p>
-                    <span class="inline-flex items-center text-xs font-medium text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-                        <i class="fa-solid fa-heart mr-1.5"></i> Hito: Reconocimiento de los derechos del paciente y la terapia hablada.
-                    </span>
-                </div>
-            </div>
-
-            <!-- Era 5 -->
-            <div class="relative pl-8 md:pl-12 group">
-                <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-gradient-to-r from-teal-500 to-purple-500 border-4 border-white flex items-center justify-center text-white text-xs shadow-md group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-dna"></i>
-                </div>
-                <div class="md:absolute md:-left-36 md:top-1.5 text-xs font-semibold uppercase tracking-wider text-purple-700 bg-purple-100/70 px-2.5 py-1 rounded inline-block mb-2 md:mb-0">
-                    Siglo XXI (Hoy)
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-purple-100 hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Neurociencia, Salud Integral y Desestigmatización</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-3">
-                        Hoy la salud mental se entiende bajo un modelo biopsicosocial: interactúan genética, química cerebral, trauma, entorno social y emociones. La palabra "locura" cae en desuso y es reemplazada por la aceptación, la empatía y la intervención científica multidisciplinaria.
-                    </p>
-                    <span class="inline-flex items-center text-xs font-medium text-purple-700 bg-purple-50 px-3 py-1 rounded-full border border-purple-200">
-                        <i class="fa-solid fa-bullhorn mr-1.5"></i> Estado Actual: Rompiendo tabúes en la era digital.
-                    </span>
-                </div>
-            </div>
-
+            <button onclick="handleLogout()" title="Cerrar sesión" class="p-2 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors">
+              <i data-lucide="log-out" class="w-4 h-4"></i>
+            </button>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Sección 2: Trastornos Comunes y Desmitificación -->
-    <section id="trastornos" class="py-20 bg-white/70">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">Trastornos Comunes de la Salud Mental</h2>
-                <p class="mt-4 text-slate-600 max-w-2xl mx-auto">No son fallas de carácter ni debilidad voluntaria. Son condiciones biológicas y psicológicas tratables.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Tarjeta 1 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/80 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-cloud-bolt"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Trastornos de Ansiedad</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            Va mucho más allá de sentir estrés normal. Implica una preocupación excesiva, persistente y paralizante sobre situaciones cotidianas.
-                        </p>
-                        <div class="space-y-2 mb-6">
-                            <span class="block text-xs font-semibold text-slate-500 uppercase">Síntomas clave:</span>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Ataques de pánico</span>
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Taquicardia</span>
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Fobias</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-4 border-t border-slate-200/60 text-xs text-teal-800 font-medium">
-                        <i class="fa-solid fa-heart mr-1"></i> Factores de ayuda: Terapia Cognitivo-Conductual y manejo de respiración.
-                    </div>
-                </div>
-
-                <!-- Tarjeta 2 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/80 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-cloud-rain"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Depresión Mayor</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            No es estar "triste un par de días". Es una alteración profunda en la química cerebral que despoja de energía, motivación e interés por la vida.
-                        </p>
-                        <div class="space-y-2 mb-6">
-                            <span class="block text-xs font-semibold text-slate-500 uppercase">Síntomas clave:</span>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Apatía/Anhedonia</span>
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Fatiga extrema</span>
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Insomnio</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-4 border-t border-slate-200/60 text-xs text-purple-800 font-medium">
-                        <i class="fa-solid fa-heart mr-1"></i> Factores de ayuda: Psicoterapia, farmacoterapia y red de apoyo.
-                    </div>
-                </div>
-
-                <!-- Tarjeta 3 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/80 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-[#]"></i>
-                            <i class="fa-solid fa-wave-square"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Trastorno Bipolar</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            Caracterizado por fluctuaciones extremas del estado de ánimo, pasando de episodios maníacos (mucha energía y euforia) a depresivos.
-                        </p>
-                        <div class="space-y-2 mb-6">
-                            <span class="block text-xs font-semibold text-slate-500 uppercase">Síntomas clave:</span>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Fases maníacas</span>
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Cambios bruscos</span>
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Impulsividad</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-4 border-t border-slate-200/60 text-xs text-indigo-800 font-medium">
-                        <i class="fa-solid fa-heart mr-1"></i> Factores de ayuda: Estabilizadores del ánimo y rutina constante.
-                    </div>
-                </div>
-
-                <!-- Tarjeta 4 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/80 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-eye-slash"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Esquizofrenia</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            A menudo malinterpretada por el cine. Afecta la percepción de la realidad, el pensamiento y el comportamiento personal.
-                        </p>
-                        <div class="space-y-2 mb-6">
-                            <span class="block text-xs font-semibold text-slate-500 uppercase">Síntomas clave:</span>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Alucinaciones</span>
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Delirios</span>
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Pensamiento desorganizado</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-4 border-t border-slate-200/60 text-xs text-rose-800 font-medium">
-                        <i class="fa-solid fa-heart mr-1"></i> Factores de ayuda: Tratamiento psiquiátrico y soporte psicosocial.
-                    </div>
-                </div>
-
-                <!-- Tarjeta 5 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/80 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-[#]"></i>
-                            <i class="fa-solid fa-rotate-left"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Trastorno Obsesivo (TOC)</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            No es simplemente "ser perfeccionista". Involucra pensamientos intrusivos no deseados (obsesiones) y conductas repetitivas (compulsiones).
-                        </p>
-                        <div class="space-y-2 mb-6">
-                            <span class="block text-xs font-semibold text-slate-500 uppercase">Síntomas clave:</span>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Intrusiones</span>
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Rituales de verificación</span>
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Ansiedad alta</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-4 border-t border-slate-200/60 text-xs text-amber-800 font-medium">
-                        <i class="fa-solid fa-heart mr-1"></i> Factores de ayuda: Terapia Exposición y Prevención de Respuesta (EPR).
-                    </div>
-                </div>
-
-                <!-- Tarjeta 6 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/80 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-shield-heart"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Estrés Postraumático (TEPT)</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            Surge tras presenciar o experimentar eventos traumáticos impactantes. El cerebro reacciona como si el peligro continuara presente.
-                        </p>
-                        <div class="space-y-2 mb-6">
-                            <span class="block text-xs font-semibold text-slate-500 uppercase">Síntomas clave:</span>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Flashbacks</span>
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Pesadillas</span>
-                                <span class="bg-white border text-slate-600 text-xs px-2.5 py-1 rounded-md">Hipervigilancia</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-4 border-t border-slate-200/60 text-xs text-emerald-800 font-medium">
-                        <i class="fa-solid fa-heart mr-1"></i> Factores de ayuda: EMDR, terapia focalizada en el trauma.
-                    </div>
-                </div>
-
-            </div>
+  <!-- HERO SECTION -->
+  <section class="relative bg-gradient-to-b from-teal-50/60 via-purple-50/30 to-slate-50 py-20 lg:py-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-100/80 text-teal-800 text-xs font-semibold tracking-wide border border-teal-200">
+          <i data-lucide="heart" class="w-3.5 h-3.5"></i>
+          <span>Comprendiendo la mente humana</span>
         </div>
-    </section>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          De las "locuras" del pasado al bienestar del presente
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal">
+          Una mirada compasiva a la historia de la salud mental, rompiendo estigmas y construyendo un espacio seguro para la empatía y la comprensión.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 pt-4">
+          <a href="#historia" class="bg-slate-900 hover:bg-slate-800 text-white font-medium px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-slate-900/10 flex items-center gap-2">
+            <span>Explorar Historia</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#respiracion" class="bg-white hover:bg-slate-100 text-slate-700 font-medium px-6 py-3.5 rounded-xl border border-slate-200 transition-all flex items-center gap-2">
+            <i data-lucide="wind" class="w-4 h-4 text-teal-600"></i>
+            <span>Ejercicio de Respiración</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Sección 3: Mitos vs Realidades (Interactivo) -->
-    <section id="mitos" class="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">Mitos vs. Realidades</h2>
-            <p class="mt-4 text-slate-600">Haz clic en cada mito para descubrir la realidad científica y romper prejuicios.</p>
+  <!-- HISTORIA DE LA LOCURA -->
+  <section id="historia" class="py-16 bg-white border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-3xl font-bold text-slate-900">Evolución del Concepto de "Locura"</h2>
+        <p class="mt-3 text-slate-600">A lo largo de los siglos, la percepción de la salud mental ha pasado de mitos sobrenaturales a una ciencia basada en la empatía y la neurociencia.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-teal-300 transition-all">
+          <span class="text-xs font-bold text-teal-600 tracking-wider uppercase">Antigüedad</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-2">Humores y Espíritus</h3>
+          <p class="text-sm text-slate-600 mt-2">Creencias divididas entre posesiones espirituales y los primeros intentos médicos con la teoría de los humores de Hipócrates.</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-teal-300 transition-all">
+          <span class="text-xs font-bold text-teal-600 tracking-wider uppercase">Edad Media</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-2">El Aislamiento</h3>
+          <p class="text-sm text-slate-600 mt-2">Las afecciones mentales eran marginadas, asociadas a lo demoníaco o recluidas sin tratamiento adecuado.</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-teal-300 transition-all">
+          <span class="text-xs font-bold text-teal-600 tracking-wider uppercase">Siglos XIX - XX</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-2">Nacimiento de la Psiquiatría</h3>
+          <p class="text-sm text-slate-600 mt-2">Surge la investigación clínica y el psicoanálisis, sustituyendo el encierro por tratamientos médicos y terapias.</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-teal-300 transition-all">
+          <span class="text-xs font-bold text-teal-600 tracking-wider uppercase">Siglo XXI</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-2">Neurociencia y Humanismo</h3>
+          <p class="text-sm text-slate-600 mt-2">Se adopta el enfoque biopsicosocial, priorizando la salud emocional, la inclusión y la desestigmatización.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MITOS VS REALIDADES -->
+  <section id="mitos" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl font-bold text-slate-900">Mitos y Realidades</h2>
+        <p class="mt-3 text-slate-600">Desmontando prejuicios para entender mejor la salud mental.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-2 text-red-500 font-semibold text-sm mb-2">
+            <i data-lucide="x-circle" class="w-4 h-4"></i> Mito
+          </div>
+          <p class="font-bold text-slate-900 mb-4">"Ir al psicólogo es solo para locos."</p>
+          <div class="flex items-center gap-2 text-teal-600 font-semibold text-sm mb-2">
+            <i data-lucide="check-circle" class="w-4 h-4"></i> Realidad
+          </div>
+          <p class="text-sm text-slate-600">La terapia es un espacio de autocuidado y orientación para cualquier persona que busque mejorar su bienestar emocional.</p>
         </div>
 
-        <div class="space-y-4" id="accordionContainer">
-            
-            <!-- Mito 1 -->
-            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all duration-200">
-                <button onclick="toggleAccordion(1)" class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
-                    <div class="flex items-center space-x-3">
-                        <span class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xs font-bold">M1</span>
-                        <span class="font-semibold text-slate-800 text-base sm:text-lg">"Ir al psicólogo o psiquiatra es solo para gente 'loca'"</span>
-                    </div>
-                    <i id="icon-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
-                </button>
-                <div id="content-1" class="hidden px-6 pb-6 pt-2 text-slate-600 text-sm border-t border-slate-100 bg-slate-50/50">
-                    <div class="flex items-start space-x-3">
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-lg mt-0.5"></i>
-                        <div>
-                            <strong class="text-slate-800 block mb-1">La Realidad:</strong>
-                            Acudir a terapia es una muestra de madurez y responsabilidad con uno mismo. Así como asistimos al dentista o médico general para prevención y cuidado, la salud mental requiere atención profesional para gestionar el estrés, duelos, decisiones y estados emocionales.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mito 2 -->
-            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all duration-200">
-                <button onclick="toggleAccordion(2)" class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
-                    <div class="flex items-center space-x-3">
-                        <span class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xs font-bold">M2</span>
-                        <span class="font-semibold text-slate-800 text-base sm:text-lg">"La depresión se supera simplemente con 'ganas' y actitud positiva"</span>
-                    </div>
-                    <i id="icon-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
-                </button>
-                <div id="content-2" class="hidden px-6 pb-6 pt-2 text-slate-600 text-sm border-t border-slate-100 bg-slate-50/50">
-                    <div class="flex items-start space-x-3">
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-lg mt-0.5"></i>
-                        <div>
-                            <strong class="text-slate-800 block mb-1">La Realidad:</strong>
-                            La depresión no es pereza ni falta de voluntad. Implica cambios químicos y neurobiológicos en el cerebro. Exigirle a alguien con depresión clínica que "le eche ganas" equivale a pedirle a alguien con una pierna fracturada que corra una maratón.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mito 3 -->
-            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all duration-200">
-                <button onclick="toggleAccordion(3)" class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
-                    <div class="flex items-center space-x-3">
-                        <span class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xs font-bold">M3</span>
-                        <span class="font-semibold text-slate-800 text-base sm:text-lg">"Las personas con trastornos mentales son peligrosas e impredecibles"</span>
-                    </div>
-                    <i id="icon-3" class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
-                </button>
-                <div id="content-3" class="hidden px-6 pb-6 pt-2 text-slate-600 text-sm border-t border-slate-100 bg-slate-50/50">
-                    <div class="flex items-start space-x-3">
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-lg mt-0.5"></i>
-                        <div>
-                            <strong class="text-slate-800 block mb-1">La Realidad:</strong>
-                            La gran mayoría de las personas con diagnósticos de salud mental no son violentas. De hecho, los estudios demuestran que tienen muchísima más probabilidad de ser víctimas de violencia o discriminación que de ejercerla.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mito 4 -->
-            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all duration-200">
-                <button onclick="toggleAccordion(4)" class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
-                    <div class="flex items-center space-x-3">
-                        <span class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xs font-bold">M4</span>
-                        <span class="font-semibold text-slate-800 text-base sm:text-lg">"Los fármacos psiquiátricos enganchan y cambian tu personalidad"</span>
-                    </div>
-                    <i id="icon-4" class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
-                </button>
-                <div id="content-4" class="hidden px-6 pb-6 pt-2 text-slate-600 text-sm border-t border-slate-100 bg-slate-50/50">
-                    <div class="flex items-start space-x-3">
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-lg mt-0.5"></i>
-                        <div>
-                            <strong class="text-slate-800 block mb-1">La Realidad:</strong>
-                            Supervisados adecuadamente por un especialista, los medicamentos restauran el equilibrio neuroquímico permitiendo que la persona vuelva a sentirse ella misma. No cambian la esencia individual ni generan adicción si se toman bajo estricto control médico.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-2 text-red-500 font-semibold text-sm mb-2">
+            <i data-lucide="x-circle" class="w-4 h-4"></i> Mito
+          </div>
+          <p class="font-bold text-slate-900 mb-4">"Las enfermedades mentales son falta de fuerza de voluntad."</p>
+          <div class="flex items-center gap-2 text-teal-600 font-semibold text-sm mb-2">
+            <i data-lucide="check-circle" class="w-4 h-4"></i> Realidad
+          </div>
+          <p class="text-sm text-slate-600">Son condiciones médicas complejas influenciadas por factores biológicos, genéticos y del entorno.</p>
         </div>
-    </section>
 
-    <!-- Sección 4: Autocuidado & Ejercicio Interactivo -->
-    <section id="autocuidado" class="py-20 bg-gradient-to-b from-teal-50/50 to-slate-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">Prácticas de Autocuidado y Calma</h2>
-                <p class="mt-4 text-slate-600 max-w-2xl mx-auto">Pequeños hábitos diarios que fortalecen la estabilidad mental y emocional.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                
-                <!-- Ejercicio de respiración Guiado -->
-                <div class="bg-white p-8 rounded-3xl shadow-lg border border-teal-100 text-center flex flex-col items-center">
-                    <span class="text-xs font-bold text-teal-600 tracking-wider uppercase mb-2">Ejercicio Interactivo</span>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-6">Respiración Guiada (4-7-8)</h3>
-                    
-                    <div class="relative w-48 h-48 flex items-center justify-center my-6">
-                        <div id="breatheCircle" class="absolute inset-0 bg-gradient-to-tr from-teal-400 to-purple-400 rounded-full opacity-30 transition-all duration-1000"></div>
-                        <div class="w-36 h-36 bg-white rounded-full shadow-inner flex flex-col items-center justify-center z-10 border border-teal-100">
-                            <span id="breatheText" class="text-lg font-bold text-teal-800">Inhala</span>
-                            <span id="breatheTimer" class="text-2xl font-extrabold text-slate-700 mt-1">4</span>
-                        </div>
-                    </div>
-
-                    <p class="text-xs text-slate-500 mb-6 max-w-xs">Ayuda a reducir la frecuencia cardíaca y calmar la ansiedad en momentos de sobrecarga.</p>
-                    
-                    <button id="btnBreathe" onclick="toggleBreatheGuide()" class="bg-teal-600 hover:bg-teal-700 text-white font-medium px-6 py-2.5 rounded-full text-sm shadow-md transition-all">
-                        <i class="fa-solid fa-play mr-2"></i> Iniciar Ejercicio
-                    </button>
-                </div>
-
-                <!-- Lista de Hábitos Saludables -->
-                <div class="space-y-6">
-                    <div class="flex items-start space-x-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
-                        <div class="w-12 h-12 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-lg flex-shrink-0">
-                            <i class="fa-solid fa-bed"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-slate-800 text-base">Descanso Reparador</h4>
-                            <p class="text-slate-600 text-sm mt-1">Dormir entre 7 y 8 horas diarias ayuda a consolidar la memoria y regular las emociones.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start space-x-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
-                        <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-lg flex-shrink-0">
-                            <i class="fa-solid fa-person-walking"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-slate-800 text-base">Movimiento Físico Regular</h4>
-                            <p class="text-slate-600 text-sm mt-1">El ejercicio libera endorfinas y dopamina, reduciendo de forma natural el estrés.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start space-x-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
-                        <div class="w-12 h-12 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-lg flex-shrink-0">
-                            <i class="fa-solid fa-[#]"></i>
-                            <i class="fa-solid fa-users"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-slate-800 text-base">Conexión Social Significativa</h4>
-                            <p class="text-slate-600 text-sm mt-1">Compartir lo que sientes con personas de confianza alivia la carga emocional.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start space-x-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
-                        <div class="w-12 h-12 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-lg flex-shrink-0">
-                            <i class="fa-solid fa-[#]"></i>
-                            <i class="fa-solid fa-[#]"></i>
-                            <i class="fa-solid fa-hand-holding-heart"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-slate-800 text-base">Autocompasión y Límites</h4>
-                            <p class="text-slate-600 text-sm mt-1">Aprende a decir "no" sin culpa y tratarte con la misma amabilidad con la que tratarías a un amigo.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-2 text-red-500 font-semibold text-sm mb-2">
+            <i data-lucide="x-circle" class="w-4 h-4"></i> Mito
+          </div>
+          <p class="font-bold text-slate-900 mb-4">"Los niños no sufren problemas de salud mental."</p>
+          <div class="flex items-center gap-2 text-teal-600 font-semibold text-sm mb-2">
+            <i data-lucide="check-circle" class="w-4 h-4"></i> Realidad
+          </div>
+          <p class="text-sm text-slate-600">Los niños y adolescentes también pueden experimentar ansiedad, depresión y otros trastornos que requieren atención.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Sección 5: Recursos de Ayuda y CTA -->
-    <section id="ayuda" class="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
-            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-teal-500/20 rounded-full blur-3xl"></div>
-            
-            <div class="relative z-10 text-center max-w-3xl mx-auto">
-                <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-md">
-                    <i class="fa-solid fa-[#]"></i>
-                    <i class="fa-solid fa-phone-volume text-2xl text-teal-300"></i>
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Pedir ayuda es un acto de valentía</h2>
-                <p class="text-slate-300 text-base sm:text-lg mb-8 leading-relaxed font-light">
-                    Si sientes que la angustia, la tristeza o la ansiedad sobrepasan tus fuerzas, recuerda que no tienes por qué llevar esta carga a solas. Hay profesionales listos para escucharte.
-                </p>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-8">
-                    <div class="bg-white/10 p-4 rounded-xl border border-white/10">
-                        <span class="text-xs text-teal-300 font-semibold uppercase">Línea de Atención Crisis</span>
-                        <p class="font-bold text-lg mt-1 text-white">Marca al 911 / 106 / 024</p>
-                        <p class="text-xs text-slate-400 mt-0.5">(Verifica el número de emergencia de tu país)</p>
-                    </div>
-                    <div class="bg-white/10 p-4 rounded-xl border border-white/10">
-                        <span class="text-xs text-teal-300 font-semibold uppercase">Apoyo Profesional</span>
-                        <p class="font-bold text-lg mt-1 text-white">Consulta con un Psicólogo/a</p>
-                        <p class="text-xs text-slate-400 mt-0.5">Visita tu centro de salud local o clínica pública.</p>
-                    </div>
-                </div>
-
-                <p class="text-xs text-slate-400">
-                    * MenteSana es un portal netamente educativo e informativo. En caso de emergencia o riesgo inminente, acude al centro de urgencias médica más cercano.
-                </p>
-            </div>
+  <!-- EJERCICIO DE RESPIRACIÓN -->
+  <section id="respiracion" class="py-16 bg-slate-900 text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-xs font-bold text-teal-400 uppercase tracking-widest">Herramienta Interactiva</span>
+          <h2 class="text-3xl font-bold mt-2">Respiración Guiada 4-7-8</h2>
+          <p class="text-slate-400 mt-4 leading-relaxed">
+            Esta técnica ayuda a relajar el sistema nervioso, disminuir el estrés y reducir episodios de ansiedad.
+          </p>
+          <div class="mt-8 flex items-center gap-4">
+            <button id="breathBtn" onclick="toggleBreathing()" class="bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold px-6 py-3 rounded-xl transition-all flex items-center gap-2">
+              <i data-lucide="play" id="breathIcon" class="w-5 h-5"></i>
+              <span id="breathBtnText">Iniciar Ejercicio</span>
+            </button>
+            <span id="breathStatus" class="text-sm text-teal-300 font-medium hidden">Sigue el ritmo...</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-10">
-        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-3">
-            <div class="flex justify-center items-center space-x-2">
-                <div class="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center text-white text-xs">
-                    <i class="fa-solid fa-brain"></i>
-                </div>
-                <span class="font-bold text-sm text-slate-800">MenteSana</span>
+        <div class="flex justify-center items-center py-12">
+          <div class="relative w-64 h-64 flex items-center justify-center">
+            <div id="breathCircle" class="w-48 h-48 bg-teal-500/20 rounded-full border-2 border-teal-400 flex items-center justify-center transition-all duration-1000 breathe-animation">
+              <span id="breathPhase" class="text-xl font-bold text-teal-200">En calma</span>
             </div>
-            <p>Promoviendo la educación, la empatía y la salud mental sin estigmas.</p>
-            <p>© 2026 MenteSana - Desarrollado para la concienciación social.</p>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- JavaScript para Interactividad -->
-    <script>
-        // Función para Acordeón (Mitos vs Realidades)
-        function toggleAccordion(id) {
-            const content = document.getElementById(`content-${id}`);
-            const icon = document.getElementById(`icon-${id}`);
-            
-            // Cerrar otros contenidos
-            for (let i = 1; i <= 4; i++) {
-                if (i !== id) {
-                    const c = document.getElementById(`content-${i}`);
-                    const ic = document.getElementById(`icon-${i}`);
-                    if (c && !c.classList.contains('hidden')) {
-                        c.classList.add('hidden');
-                        ic.style.transform = 'rotate(0deg)';
-                    }
-                }
-            }
+  <!-- MODAL DE AUTENTICACIÓN FIREBASE -->
+  <div id="authModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl border border-slate-100 overflow-hidden relative">
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
 
-            // Alternar actual
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                content.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
+      <div class="p-8">
+        <div class="text-center mb-6">
+          <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="user-check" class="w-6 h-6"></i>
+          </div>
+          <h3 id="modalTitle" class="text-2xl font-bold text-slate-900">Iniciar Sesión</h3>
+          <p class="text-xs text-slate-500 mt-1">Accede a tu cuenta en MenteSana</p>
+        </div>
 
-        // Guía de respiración 4-7-8 interactiva
-        let breatheInterval = null;
-        let isBreathing = false;
+        <!-- Pestañas -->
+        <div class="flex border-b border-slate-200 mb-6">
+          <button id="tabLogin" onclick="switchAuthTab('login')" class="flex-1 py-2 text-sm font-semibold text-teal-600 border-b-2 border-teal-600">
+            Ingresar
+          </button>
+          <button id="tabRegister" onclick="switchAuthTab('register')" class="flex-1 py-2 text-sm font-semibold text-slate-400 hover:text-slate-600">
+            Registrarse
+          </button>
+        </div>
 
-        function toggleBreatheGuide() {
-            const btn = document.getElementById('btnBreathe');
-            const text = document.getElementById('breatheText');
-            const timer = document.getElementById('breatheTimer');
-            const circle = document.getElementById('breatheCircle');
+        <!-- Mensajes de Notificación -->
+        <div id="authMessage" class="hidden mb-4 p-3 rounded-lg text-xs font-medium"></div>
 
-            if (isBreathing) {
-                // Detener
-                clearInterval(breatheInterval);
-                isBreathing = false;
-                btn.innerHTML = '<i class="fa-solid fa-play mr-2"></i> Iniciar Ejercicio';
-                text.innerText = "Inhala";
-                timer.innerText = "4";
-                circle.style.transform = "scale(1)";
-                return;
-            }
-
-            // Iniciar
-            isBreathing = true;
-            btn.innerHTML = '<i class="fa-solid fa-stop mr-2"></i> Detener';
-
-            let state = 0; // 0: Inhala (4s), 1: Mantén (7s), 2: Exhala (8s)
-            let seconds = 4;
-
-            const runBreatheCycle = () => {
-                if (state === 0) {
-                    text.innerText = "Inhala";
-                    circle.style.transform = "scale(1.4)";
-                } else if (state === 1) {
-                    text.innerText = "Mantén";
-                    circle.style.transform = "scale(1.4)";
-                } else if (state === 2) {
-                    text.innerText = "Exhala";
-                    circle.style.transform = "scale(1)";
-                }
-                timer.innerText = seconds;
-            };
-
-            runBreatheCycle();
-
-            breatheInterval = setInterval(() => {
-                seconds--;
-                if (seconds < 1) {
-                    if (state === 0) {
-                        state = 1;
-                        seconds = 7;
-                    } else if (state === 1) {
-                        state = 2;
-                        seconds = 8;
-                    } else if (state === 2) {
-                        state = 0;
-                        seconds = 4;
-                    }
-                }
-                runBreatheCycle();
-            }, 1000);
-        }
-
-        // Desplazamiento suave al inicio
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
+        <!-- Formulario -->
+        <form id="authForm" onsubmit="handleAuthSubmit(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Correo Electrónico</label>
+            <input type="email" id="authEmail" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-sm transition-all" placeholder="tucorreo@ejemplo.com">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Contraseña</label>
+            <input type="password" id="authPassword" required minlength="6" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-sm transition-all" placeholder="••••••••">
+          </div>
+          <button type="submit" id="authSubmitBtn" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-xl shadow-md shadow-teal-6
